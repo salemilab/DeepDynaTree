@@ -13,8 +13,8 @@ Please check the dependencies.txt.
 
 ## Usage examples
  - Preparing dataset  
-Both [original and preprocessed datasets] are avaliable. Please uzip them in the root folder. Jupyter notebook files in `aly` provide a detailed preprocessing step by step for both node feature and edge feature. The provided preprocessed dataset is divided into train/validation/test sets.
-Before running the code, put the preprocessed dataset on a desired directory. By default, the data root is set as `data/preprocessed_data/split_rs123`
+Both [original and preprocessed datasets] are avaliable. Please uzip them in the root folder. Jupyter notebook files in `aly` provide a detailed preprocessing step by step for both node feature and edge feature. The provided preprocessed dataset is divided into train/validation/test sets.  
+Before running the code, put the preprocessed dataset on a desired directory. By default, the data root is set as `data/preprocessed_data/split_rs123`.  
 See: [dl/config.py]
 ```sh
 data.add_argument("--ds_name", type=str, default="preprocessed_data", help="The name of dataset")
@@ -28,10 +28,9 @@ The container is build by [singularity] and is avaliable at [here]. To run a she
 singularity shell --nv singularity_deepdynatree.sif    
 ```
 
- - Train models
-The main function is located in `dl`, which supports training [GCN], [GAT], [GIN], and PDGLSTM models. Also, it supports training node-based neural network models like MLP, [SetTransformer], [DeepSet] and [TabNet].
-Other node-based methods (i.e. LR, RF, XGBoost) are included in [models/ml_models.ipynb].
-
+ - Train models  
+The main function is located in `dl`, which supports training [GCN], [GAT], [GIN], and PDGLSTM models. Also, it supports training node-based neural network models like MLP, [SetTransformer], [DeepSet] and [TabNet].  
+Other node-based methods (i.e. LR, RF, XGBoost) are included in [models/ml_models.ipynb].  
 Example commands 
 ```sh
 # train a PDGLSTM model
@@ -43,9 +42,9 @@ python main.py --graph_info False --model 'tabnet' --model_num 0
 ```
 
 ## Results
-The test scripts of LR, RF and XGBoost are in [test/ml_test.ipynb] and their corresponding trained models are in `checkpoints/preprocessed_data/split_rs123`.
-To use the [trained neural network models], please download files and unzip it to `dl`.
-Please change the settings in [test/main_test.py] to run the test phase with different models.
+The test scripts of LR, RF and XGBoost are in [test/ml_test.ipynb] and their corresponding trained models are in `checkpoints/preprocessed_data/split_rs123`.  
+To use the [trained neural network models], please download files and unzip it to `dl`.  
+Please change the settings in [test/main_test.py] to run the test phase with different models.  
 ```sh
 python main_test.py
 ```

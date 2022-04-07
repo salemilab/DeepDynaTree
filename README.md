@@ -12,7 +12,7 @@ Please check the dependencies.txt.
 - Agent-based simulation model [nosoi] to generate simulated trees and input datatables in R.
 
 ## Usage examples
- - Preparing dataset
+ - Preparing dataset  
 Both [original and preprocessed datasets] are avaliable. Please uzip them in the root folder. Jupyter notebook files in `aly` provide a detailed preprocessing step by step for both node feature and edge feature. The provided preprocessed dataset is divided into train/validation/test sets.
 Before running the code, put the preprocessed dataset on a desired directory. By default, the data root is set as `data/preprocessed_data/split_rs123`
 See: [dl/config.py]
@@ -22,7 +22,7 @@ data.add_argument("--ds_dir", type=str, default="../data/", help="The base folde
 data.add_argument("--ds_split", type=str, default="split_rs123")
 ```
 
- - Run container
+ - Run container  
 The container is build by [singularity] and is avaliable at [here]. To run a shell within the container:
 ```sh
 singularity shell --nv singularity_deepdynatree.sif    

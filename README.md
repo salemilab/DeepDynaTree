@@ -31,6 +31,7 @@ singularity shell --nv singularity_deepdynatree.sif
  - Train models
 The main function is located in `dl`, which supports training [GCN], [GAT], [GIN], and PDGLSTM models. Also, it supports training node-based neural network models like MLP, [SetTransformer], [DeepSet] and [TabNet].
 Other node-based methods (i.e. LR, RF, XGBoost) are included in [models/ml_models.ipynb].
+
 Example commands 
 ```sh
 # train a PDGLSTM model
@@ -57,7 +58,7 @@ Besides, scripts for generating figures in the main pages and supplementaries ar
    [singularity]: <https://sylabs.io/guides/3.9/user-guide/>
    [here]: <https://genome.ufl.edu/download/ddt/singularity_deepdynatree.sif>
    [original and preprocessed datasets]: <https://genome.ufl.edu/download/ddt/data.zip>
-   [trained neural network models]: <https://genome.ufl.edu/download/ddt/trained-models.zip>
+   [trained neural network models]: <https://genome.ufl.edu/download/ddt/trained_models.zip>
    [SetTransformer]: <http://proceedings.mlr.press/v97/lee19d.html>
    [DeepSet]: <https://doi.org/10.48550/arXiv.1703.06114>
    [TabNet]: <https://doi.org/10.48550/arXiv.1908.07442>

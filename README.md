@@ -1,7 +1,7 @@
 # DeepDynaTree
 
-This is a pytorch implementation of our research: 
-Phylogenetic-informed graph deep learning to classify dynamic transmission clusters in infectious disease epidemics.
+This is a pytorch implementation of our research:  
+Phylogenetic-informed graph deep learning to classify dynamic transmission clusters in infectious disease epidemics.  
 If you find our work useful in your research or publication, please cite our work.
 
 ## Dependencies

@@ -10,6 +10,8 @@ Please check the dependencies.txt.
 ## Datasets
 
 - Agent-based simulation model [nosoi] to generate simulated trees and input datatables in R.
+- Source code used to simulate the data (including seeds) used in this study, as well as code used in calculating tree shape statistics and transforming annotated
+trees for DeepDynaTree classification, are provided.
 
 ## Usage examples
  - Preparing dataset  

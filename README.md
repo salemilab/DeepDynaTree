@@ -31,7 +31,7 @@ singularity shell --nv singularity_deepdynatree.sif
 ```
 
  - Train models  
-The main function is located in `dl`, which supports training [GCN], [GAT], [GIN], and PDGLSTM models. Also, it supports training node-based neural network models like MLP, [SetTransformer], [DeepSet] and [TabNet].  
+The main function is located in `dl`, which supports training GCN, GAT, GIN, and PDGLSTM models. Also, it supports training node-based neural network models like MLP, SetTransformer, DeepSet and TabNet.  
 Other node-based methods (i.e. LR, RF, XGBoost) are included in [models/ml_models.ipynb].  
 Example commands 
 ```sh
@@ -53,22 +53,22 @@ python main_test.py
 Besides, scripts for generating figures in the main pages and supplementaries are avaliable at [models/post_aly.ipynb] and [models/post_aly_all.ipynb] respectively.
 
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+[//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
 
-   [nosoi]: <https://github.com/slequime/nosoi>
-   [singularity]: <https://sylabs.io/guides/3.9/user-guide/>
-   [here]: <https://genome.ufl.edu/download/ddt/singularity_deepdynatree.sif>
-   [original and preprocessed datasets]: <https://genome.ufl.edu/download/ddt/data.zip>
-   [trained neural network models]: <https://genome.ufl.edu/download/ddt/trained_models.zip>
-   [SetTransformer]: <http://proceedings.mlr.press/v97/lee19d.html>
-   [DeepSet]: <https://doi.org/10.48550/arXiv.1703.06114>
-   [TabNet]: <https://doi.org/10.48550/arXiv.1908.07442>
-   [GCN]: <https://doi.org/10.48550/arXiv.1609.02907>
-   [GAT]: <https://doi.org/10.48550/arXiv.1710.10903>
-   [GIN]: <https://doi.org/10.48550/arXiv.1810.00826>
-   [dl/config.py]: <https://github.com/salemilab/DeepDynaTree/blob/main/dl/config.py>
-   [models/ml_models.ipynb]: <https://github.com/salemilab/DeepDynaTree/blob/main/models/ml_models.ipynb>
-   [test/ml_test.ipynb]: <https://github.com/salemilab/DeepDynaTree/blob/main/test/ml_test.ipynb>
-   [test/main_test.py]: <https://github.com/salemilab/DeepDynaTree/blob/main/test/main_test.py>
-   [models/post_aly.ipynb]: <https://github.com/salemilab/DeepDynaTree/blob/main/models/post_aly.ipynb>
-   [models/post_aly_all.ipynb]: <https://github.com/salemilab/DeepDynaTree/blob/main/models/post_aly_all.ipynb>
+[nosoi]: <https://github.com/slequime/nosoi>
+[singularity]: <https://sylabs.io/guides/3.9/user-guide/>
+[here]: <https://genome.ufl.edu/download/ddt/singularity_deepdynatree.sif>
+[original and preprocessed datasets]: <https://genome.ufl.edu/download/ddt/data.zip>
+[trained neural network models]: <https://genome.ufl.edu/download/ddt/trained_models.zip>
+[SetTransformer]: <http://proceedings.mlr.press/v97/lee19d.html>
+[DeepSet]: <https://doi.org/10.48550/arXiv.1703.06114>
+[TabNet]: <https://doi.org/10.48550/arXiv.1908.07442>
+[GCN]: <https://doi.org/10.48550/arXiv.1609.02907>
+[GAT]: <https://doi.org/10.48550/arXiv.1710.10903>
+[GIN]: <https://doi.org/10.48550/arXiv.1810.00826>
+[dl/config.py]: <https://github.com/salemilab/DeepDynaTree/blob/main/dl/config.py>
+[models/ml_models.ipynb]: <https://github.com/salemilab/DeepDynaTree/blob/main/models/ml_models.ipynb>
+[test/ml_test.ipynb]: <https://github.com/salemilab/DeepDynaTree/blob/main/test/ml_test.ipynb>
+[test/main_test.py]: <https://github.com/salemilab/DeepDynaTree/blob/main/test/main_test.py>
+[models/post_aly.ipynb]: <https://github.com/salemilab/DeepDynaTree/blob/main/models/post_aly.ipynb>
+[models/post_aly_all.ipynb]: <https://github.com/salemilab/DeepDynaTree/blob/main/models/post_aly_all.ipynb>

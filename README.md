@@ -4,6 +4,17 @@ This is a pytorch implementation of our research:
 Phylogenetic-informed graph deep learning to classify dynamic transmission clusters in infectious disease epidemics.  
 If you find our work useful in your research or publication, please cite our work.
 
+```
+@article {Sun2022.04.10.487587,
+	author = {Sun, Chaoyue and Li, Yanjun and Marini, Simone and Riva, Alberto and Wu, Dapeng Oliver and Salemi, Marco and Magalis, Brittany Rife},
+	title = {Phylogenetic-informed graph deep learning to classify dynamic transmission clusters in infectious disease epidemics},
+	year = {2022},
+	doi = {10.1101/2022.04.10.487587},
+	URL = {https://www.biorxiv.org/content/early/2022/04/11/2022.04.10.487587},
+	journal = {bioRxiv}
+}
+```
+
 ## Dependencies
 Please check the dependencies.txt.
 

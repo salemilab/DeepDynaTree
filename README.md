@@ -16,7 +16,8 @@ If you find our work useful in your research or publication, please cite our wor
 ```
 
 ## Dependencies
-Please check the dependencies.txt.
+All experiments were performed on a workstation with 12 Intel Core i7-5930K CPUs and a single Nvidia GeForce GTX TITAN X GPU card.
+For Python package dependencies please check the dependencies.txt.
 
 ## Datasets
 

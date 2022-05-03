@@ -55,9 +55,9 @@ python main.py --model 'pdglstm' --model_num 0 --batch_size 32 --init_lr 0.001 -
 # train a TabNet model
 python main.py --graph_info False --model 'tabnet' --model_num 0
 ```
-The training phase of PDGLSTM usually takes 2-3 days.
+The training phase of PDGLSTM usually takes 2-3 days. The confusion matrix, ROC curve and the metrics for model performance will be generated for the validation and test dataset. 
 
-## Results
+## Demo
 The test scripts of LR, RF and XGBoost are in [test/ml_test.ipynb] and their corresponding trained models are in `checkpoints/preprocessed_data/split_rs123`.  
 To use the [trained neural network models], please download files and unzip it to `dl`.  
 Please change the settings in [test/main_test.py] to run the test phase with different models.  

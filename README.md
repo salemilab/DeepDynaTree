@@ -17,6 +17,7 @@ If you find our work useful in your research or publication, please cite our wor
 
 ## Dependencies
  - All experiments were performed on a workstation with 12 Intel Core i7-5930K CPUs and a single Nvidia GeForce GTX TITAN X GPU card.
+ - Operating System: Ubuntu 16.04.4 LTS system. 
  - For Python package dependencies please check the dependencies.txt.
 
 ## Datasets
@@ -54,6 +55,7 @@ python main.py --model 'pdglstm' --model_num 0 --batch_size 32 --init_lr 0.001 -
 # train a TabNet model
 python main.py --graph_info False --model 'tabnet' --model_num 0
 ```
+The training phase of PDGLSTM usually takes 2-3 days.
 
 ## Results
 The test scripts of LR, RF and XGBoost are in [test/ml_test.ipynb] and their corresponding trained models are in `checkpoints/preprocessed_data/split_rs123`.  
@@ -63,6 +65,7 @@ Please change the settings in [test/main_test.py] to run the test phase with dif
 python main_test.py
 ```
 Besides, scripts for generating figures in the main pages and supplementaries are avaliable at [models/post_aly.ipynb] and [models/post_aly_all.ipynb] respectively.
+The test phase can be done in a few minutes.
 
 
 [//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"

@@ -117,7 +117,7 @@ class RF(Model):
                                         max_depth=hp_dict['max_depth'],
                                         min_samples_split=hp_dict['min_samples_split'],
                                         min_samples_leaf=hp_dict['min_samples_leaf'],
-                                        class_weight=hp_dict['class_weight'])
+                                        class_weight=label_weight)
 
             # CV Train
             cv_val, monitor_metric = cv_func(rf, x, y, treeids)

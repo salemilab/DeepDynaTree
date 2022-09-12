@@ -51,7 +51,7 @@ class Dataset(DGLDataset):
         self.tree_ids = self.node_df["sim"].unique()  # num of trees
 
         self.node_feat_cols = feat_dict[args.node_feat_cols]
-        self.node_feat_org = ['sim','state_id']+feat_dict["raw_feats"][0:11]
+        self.node_feat_org = ['sim']+feat_dict["raw_feats"][0:11]
         self.node_label_cols = args.node_label_cols
         self.edge_feat_cols = feat_dict[args.edge_feat_cols]
         self.n_label = len(feat_dict[args.node_label_cols.split("_cat")[0]])

@@ -49,11 +49,11 @@ Other node-based methods (i.e. LR, RF, XGBoost) are included in [models/ml_model
 Example commands 
 ```sh
 # train a PDGLSTM model
-python main.py --model 'pdglstm' --model_num 0
+python main.py --model pdglstm --model_num 0
 # train a PDGLSTM model with specific setting
-python main.py --model 'pdglstm' --model_num 0 --batch_size 32 --init_lr 0.001 --min_lr 1e-6 --lr_decay_rate 0.1
+python main.py --model pdglstm --model_num 0 --batch_size 32 --init_lr 0.001 --min_lr 1e-6 --lr_decay_rate 0.1
 # train a TabNet model
-python main.py --graph_info False --model 'tabnet' --model_num 0
+python main.py --graph_info False --model tabnet --model_num 0
 ```
 The training phase of PDGLSTM usually takes 2-3 days. The confusion matrix, ROC curve and the metrics for model performance will be generated for the validation and test dataset. 
 

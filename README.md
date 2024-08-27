@@ -73,8 +73,8 @@ The test phase can be done in a few minutes.
 [nosoi]: <https://github.com/slequime/nosoi>
 [singularity]: <https://sylabs.io/guides/3.9/user-guide/>
 [here]: <https://genome.ufl.edu/download/ddt/singularity_deepdynatree.sif>
-[original and preprocessed datasets]: <https://genome.ufl.edu/download/ddt/data.zip>
-[trained neural network models]: <https://genome.ufl.edu/download/ddt/trained_models.zip>
+[original and preprocessed datasets]: <https://drive.google.com/file/d/1iHHbIOeOLahJSoXk_oYC02XETVc7PgmE/view?usp=sharing>
+[trained neural network models]: <https://drive.google.com/file/d/1o77Y4xNh3kfmOQncDAaYdjNHWnoyfoIP/view?usp=sharing>
 [SetTransformer]: <http://proceedings.mlr.press/v97/lee19d.html>
 [DeepSet]: <https://doi.org/10.48550/arXiv.1703.06114>
 [TabNet]: <https://doi.org/10.48550/arXiv.1908.07442>

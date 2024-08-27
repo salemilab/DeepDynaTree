@@ -47,6 +47,7 @@ class Net(nn.Module):
         e_feats = len(feat_dict[args.edge_feat_cols])
         num_classes = len(feat_dict[args.node_label_cols.split("_cat")[0]])
         self.device = torch.device("cuda" if args.num_gpus > 0 else "cpu")
+
         self.embed = args.embedding
         
         # node LSTM & edge LSTM
@@ -54,12 +55,16 @@ class Net(nn.Module):
         self.Node_LSTM = nn.LSTMCell(n_feats, self.h_feat)
         self.Edge_LSTM = nn.LSTMCell(e_feats, self.h_feat)
         
-        self.m = nn.Sigmoid()
+        self.m = nn.LeakyReLU()
         
         # message passing network
         self.node_mpn = nn.Linear(2*self.h_feat, n_feats)
         self.edge_mpn = nn.Linear(3*self.h_feat, e_feats)
-        
+
+        # batch normalization on messages
+        self.node_bn = nn.BatchNorm1d(n_feats)
+        self.edge_bn = nn.BatchNorm1d(e_feats)
+
         # linear classifier
         self.fc = nn.Linear(self.h_feat, num_classes)
     
@@ -86,9 +91,9 @@ class Net(nn.Module):
             
             # message passing
             g.apply_edges(edge_udf) # update the feature vector of edges
-            g.edata['msg'] = self.m(self.edge_mpn(g.edata['cat'])) # generate edge message
+            g.edata['msg'] = self.edge_bn(self.m(self.edge_mpn(g.edata['cat']))) # generate edge message
             g.update_all(node_udf,reducer) # send edge state to dst nodes
-            g.ndata['msg'] = self.m(self.node_mpn(g.ndata['cat'])) # generate node message
+            g.ndata['msg'] = self.node_bn(self.m(self.node_mpn(g.ndata['cat']))) # generate node message
            
         # linear classifier
         output = self.fc(g.ndata['h_feat'])

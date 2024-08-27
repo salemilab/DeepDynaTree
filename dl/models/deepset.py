@@ -11,7 +11,7 @@ import numpy as np
 class Net(nn.Module):
     def __init__(self, args, pool="mean"):
         super(Net, self).__init__()
-        dim_hidden = 256
+        dim_hidden = 64
         dim_input = len(feat_dict[args.node_feat_cols])
         num_classes = len(feat_dict[args.node_label_cols.split("_cat")[0]])-1
         

@@ -6,6 +6,7 @@ main.py:
 """
 import sys 
 sys.path.append("..")
+import os
 import argparse
 import logging
 import importlib
@@ -32,10 +33,14 @@ def main(args):
     set_seed(args.seed)
     logger.info(os.getcwd())
     logger.info('Process Id: {}'.format(os.getpid()))
-
+    if args.num_gpus== 1:
+        os.environ["CUDA_VISIBLE_DEVICES"]=f'{args.vis_cuda}'
     if args.seed is None:
         args.seed = random.randint(1, 10000)
     set_seed(args.seed)
+    
+    if args.model in ["mlp", "deepset", "transet", "tabnet"]:
+        args.graph_info = False
     
     #rm_dump_folder(osp.join(SAVE_PATH, "exp", "{}_{}".format(args.model, "0")))
     # device = get_device(is_gpu=not args.no_cuda)
@@ -65,10 +70,12 @@ def main(args):
         
     device = torch.device("cuda" if args.num_gpus > 0 else "cpu")
     model = MODULE.Net(args)
-
+    #args.ds_name = 'TB-test-20230326'
+    args.ds_dir = '/mnt/data2/chaoyue/data'
     dl_dict = dict()
     num_train_sample = 1
     for phase in ['train', 'valid', 'test']:
+    #for phase in ['test']:
         if args.graph_info:
             ds = Dataset(args, phase=phase, device=device)
         else:
@@ -94,8 +101,8 @@ def main(args):
         trainer.train()
         trainer.args.mode = "eval"
     
-    if not (args.mis_aly or args.embedding):
-        trainer.eval("valid")
+    #if not (args.mis_aly or args.embedding):
+        #trainer.eval("valid")
     trainer.eval("test")
 
     # permutation importance

@@ -25,7 +25,7 @@ class Dataset(DGLDataset):
         
         self.phase = phase
         if phase in ["train", "valid", "test"]:
-            self.node_df = pd.read_csv(f"{ds_folder}/{phase}.csv", low_memory=False)
+            self.node_df = pd.read_csv(f"{ds_folder}/{phase}_s.csv", low_memory=False)
             self.edge_df = pd.read_csv(f"{ds_folder}/{phase}_edge.csv", low_memory=False)
             self.nbg_df = self.node_df[self.node_df['cluster_id']!='Background']
             # shuffle the target column for permutation importance analysis
@@ -51,7 +51,8 @@ class Dataset(DGLDataset):
         self.tree_ids = self.node_df["sim"].unique()  # num of trees
 
         self.node_feat_cols = feat_dict[args.node_feat_cols]
-        self.node_feat_org = ['sim']+feat_dict["raw_feats"][0:11]
+        #self.node_feat_org = ['sim','state_id']+feat_dict["raw_feats"][0:11]
+        #self.node_feat_org = ['sim']+feat_dict["raw_feats"][0:11]
         self.node_label_cols = args.node_label_cols
         self.edge_feat_cols = feat_dict[args.edge_feat_cols]
         self.n_label = len(feat_dict[args.node_label_cols.split("_cat")[0]])
@@ -93,9 +94,9 @@ class Dataset(DGLDataset):
         g.ndata["label"] = torch.tensor(node_label, dtype=torch.int64)
         g.edata["feat"] = torch.tensor(onetree_edge_df[self.edge_feat_cols].values, dtype=torch.float32)
         
-        if self.phase in ['test']:
-            node_org_feat = sorted_onetree_node_df[self.node_feat_org].values
-            g.ndata["org_feat"] = torch.tensor(node_org_feat, dtype=torch.float32)
+        #if self.phase in ['test']:
+        #    node_org_feat = sorted_onetree_node_df[self.node_feat_org].values
+        #    g.ndata["org_feat"] = torch.tensor(node_org_feat, dtype=torch.float32)
         # wait for reading weight norm-asinh
 
         if self.add_self_loop:
@@ -116,7 +117,7 @@ class MLPDataset(Dataset):
         ds_folder = osp.join(args.ds_dir, args.ds_name, args.ds_split)
 
         if phase in ["train", "valid", "test"]:
-            self.node_df = pd.read_csv(f"{ds_folder}/{phase}.csv", low_memory=False)
+            self.node_df = pd.read_csv(f"{ds_folder}/{phase}_s.csv", low_memory=False)
             self.edge_df = pd.read_csv(f"{ds_folder}/{phase}_edge.csv", low_memory=False)
             self.nbg_df = self.node_df[self.node_df['cluster_id']!='Background']  
             if args.permutation_test:
@@ -168,24 +169,28 @@ def collate_fn(batch_graphs):
 def gen_label_weight(args):
     # Get the weights for the unbalanced sample based on the positive sample
     # weights inversely proportional to class frequencies in the training data
-    ds_folder = osp.join(args.ds_dir, args.ds_name, args.ds_split)
-    node_df = pd.read_csv(f'{ds_folder}/train.csv')
+    #ds_folder = osp.join(args.ds_dir, args.ds_name, args.ds_split)
+    #node_df = pd.read_csv(f'{ds_folder}/train_s.csv')
 
-    node_label = node_df[args.node_label_cols].values
-    label_counter = Counter(node_label)
-    n_samples = len(node_label)
-    n_classes = len(label_counter)
+    #node_label = node_df[args.node_label_cols].values
+    #label_counter = Counter(node_label)
+    #n_samples = len(node_label)
+    #n_classes = len(label_counter)
 
-    label_weights = [n_samples / (n_classes * label_counter[i])+1 for i in range(n_classes)]
-    #label_weights[0] = label_weights[0]
-    #label_weights[1] = label_weights[1]
-    #label_weights[2] = label_weights[2]
+    #label_weights = [n_samples / (n_classes * label_counter[i])+1 for i in range(n_classes)]
+    #label_weights = list(np.load(f'../aly/label_weights_resp+TB.npy'))
+    #label_weights = [2.0218350812053556, 14.299666391664246, 6.999405162936564]
+    label_weights = [0.476749498798085, 3.371866898828094, 1.6504624607291616]
+    label_weights[0] = label_weights[0]
+    label_weights[1] = label_weights[1]
+    label_weights[2] = label_weights[2]
+
     if args.loss_ignore_bg:
-        label_weights[-1] = 0
+        #label_weights[-1] = 0
+        label_weights.append(0)
     if args.graph_info == False:
         label_weights = label_weights[0:-1]
     return label_weights
-
 
 
 

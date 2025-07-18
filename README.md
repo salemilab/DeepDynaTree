@@ -4,6 +4,8 @@ This is a pytorch implementation of our research:
 Phylogenetic-informed graph deep learning to classify dynamic transmission clusters in infectious disease epidemics.  
 If you find our work useful in your research or publication, please cite our work.
 
+![Project Logo](./DDT.png)
+
 ```
 @article {Sun2022.04.10.487587,
 	author = {Sun, Chaoyue and Li, Yanjun and Marini, Simone and Riva, Alberto and Wu, Dapeng Oliver and Salemi, Marco and Magalis, Brittany Rife},
